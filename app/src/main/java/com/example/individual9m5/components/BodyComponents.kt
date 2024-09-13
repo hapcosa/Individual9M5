@@ -83,7 +83,7 @@ fun multibutton() {
 }
 @Composable
 fun resultText(text:String){
-    Text(text = text, color = Color.Black, fontSize = 25.sp)
+    Text(text = text, color = Color.Black, fontSize = 30.sp)
 }
 @Composable
 fun MainButton(
