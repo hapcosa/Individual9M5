@@ -1,13 +1,17 @@
 package com.example.individual9m5.components
 
 import android.view.textclassifier.TextLinks.TextLink
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -22,6 +26,7 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -76,12 +81,15 @@ fun multibutton() {
 }
 
 }
-
+@Composable
+fun resultText(text:String){
+    Text(text = text, color = Color.Black, fontSize = 30.sp)
+}
 @Composable
 fun MainButton(
     text: String,
     color: Color = MaterialTheme.colorScheme.primary,
-    onClick: () -> Unit
+    onClick:() -> Unit
 ) {
     OutlinedButton(
         onClick = onClick,
@@ -100,4 +108,27 @@ fun MainButton(
             fontWeight = FontWeight.Bold
         )
     }
+}
+
+@Composable
+fun Alert(
+    title: String,
+    msj: String,
+    confirmText: String,
+    onConfirmClick: () -> Unit,
+    onDismissClick: () -> Unit
+) {
+    AlertDialog(
+        onDismissRequest = onDismissClick,
+        title = { Text(text = title) },
+        text = { Text(text = msj) },
+        shape = CutCornerShape(10.dp),
+        confirmButton = {
+            Button(onClick = onConfirmClick) {
+                Text(text = confirmText)
+            }
+        }
+
+
+    )
 }

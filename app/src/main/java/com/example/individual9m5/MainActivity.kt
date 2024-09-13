@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.individual9m5.ui.theme.Individual9M5Theme
+import com.example.individual9m5.viewmodels.CalcularIMCView
 import com.example.individual9m5.views.HomeView
 
 class MainActivity : ComponentActivity() {
@@ -21,7 +22,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             Individual9M5Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    HomeView(modifier = Modifier.padding(innerPadding) )
+                    HomeView(modifier = Modifier.padding(innerPadding), CalcularIMCView() )
                 }
             }
         }
